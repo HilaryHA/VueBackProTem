@@ -1,6 +1,8 @@
 # vueBackProTem
 
-> This is Vue background project template, This desk management system, including the basic page layout, switching theme style（这是vue后台项目模板，此后台管理系统，包含基础页面布局、切换主题样式等）
+> This is Vue background project template,   
+  This desk management system, including the basic page layout, switching theme style  
+ （这是vue后台项目模板，此后台管理系统，包含基础页面布局、切换主题样式等）
 
 
 ****
@@ -44,9 +46,9 @@
 2. 【src/App.vue】 主插件，所有子组件通过<router-view/>进入，需要在main.js中引入
 3. 【src/router/index.js】 路由文件，所有静态组件路由在此文件中定义
 4. 【src/components】 组件目录，所有组件在此文件夹下定义
-    1. layout目录：布局组件
-    2. public目录：公共组件（包含修改样式组件Setting.vue）
-    3. views目录：菜单子组件
+    - [ ] layout目录：布局组件
+    - [ ] public目录：公共组件（包含修改样式组件Setting.vue）
+    - [ ] views目录：菜单子组件
 5. 【运行顺序，vueBackProTem目录下】 
     1. 下载安装  `npm install`
     2. 启动服务  `npm run dev`
@@ -55,10 +57,20 @@
 *****
 ###  实现原理
 -------
-1. 实现过程遇到一些问题：打包生产环境换肤失败、'Uncaught RangeError: Maximum call stack size exceeded'问题、刷新切换的主题失效、首页换肤问题、项目标题根据组件名变化等
+
+1. 实现过程遇到一些问题：
+    1. 打包生产环境换肤失败
+    2. 'Uncaught RangeError: Maximum call stack size exceeded'问题
+    3. 刷新切换的主题失效
+    4. 首页换肤问题
+    5. 项目标题根据组件名变化等
+
 2. 参考[Vue+ElementUI 切换ElementUI主题+自定义颜色的修改（指定几种颜色的换肤）](https://blog.csdn.net/weixin_42512937/article/details/102777231 "Vue+ElementUI切换主题")
 
 
+
+
+******
 
 ## Build Setup
 
