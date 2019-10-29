@@ -7,7 +7,7 @@
         <e-set ref="moDrawer"></e-set>
         <el-main>
           <eBread></eBread>
-          <transition name="fade" mode="out-in">            
+          <transition name="fade" mode="out-in">
             <router-view />
           </transition>
         </el-main>
@@ -17,12 +17,12 @@
   </div>
 </template>
 <script>
-import eNav from '@/components/layout/module/Nav.vue'
-import eHead from '@/components/layout/module/Head.vue'
-import eFooter from '@/components/layout/module/Footer.vue'
-import eBread from '@/components/layout/module/Bread.vue'
-import eSet from '@/components/public/Setting'
-import { mapGetters } from 'vuex'
+import eNav from "@/components/layout/module/Nav.vue";
+import eHead from "@/components/layout/module/Head.vue";
+import eFooter from "@/components/layout/module/Footer.vue";
+import eBread from "@/components/layout/module/Bread.vue";
+import eSet from "@/components/public/Setting";
+import { mapGetters } from "vuex";
 export default {
   components: {
     eNav,
@@ -31,34 +31,30 @@ export default {
     eBread,
     eSet
   },
-  data () {
+  data() {
     return {
       navIsCollapse: false
-    }
+    };
   },
   computed: {
-    ...mapGetters(['nowThemeInfo'])
-  },
-  mounted () {
-    console.log('---【layout-index】-----nowThemeInfo--------------',this.nowThemeInfo)
-  },
-  methods: {}
-}
+    ...mapGetters(["nowThemeInfo"])
+  }
+};
 </script>
 <style lang="scss">
-@import '../../assets/css/theme';
+@import "../../assets/css/theme";
 .mo_index {
   position: fixed;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  
+
   .in_main {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100%; 
+    width: 100%;
 
     .in_cont {
       @include base-cont-color();

@@ -1,19 +1,24 @@
+/**
+ * @author Hilary
+ * @date 2019/10/10
+ * @description 切换自定义主题函数（注意区别开发、生产环境）
+ */
 import config from '../../config';
 import themeArray from './themeArray';
 import { setStore } from '../uitl/index.js';
 
 export const global = {
-    staticPath: process.env.NODE_ENV !== 'production' ? config.dev.staticPath : config.build.staticPath,    //静态资源路径
-    // staticPath: '/static',
+    // 静态资源路径
+    staticPath: process.env.NODE_ENV !== 'production' ? config.dev.staticPath : config.build.staticPath, // staticPath: '/static' 
     /**
      * 切换主题函数
+     * @param {String} themeValue  主题名
      */
     changeTheme: function (themeValue) {
-        // 生成环境，不需要手动添加样式，只需改data-theme属性值即可
-        console.log('切换主题颜色值：', process.env.NODE_ENV);
-        console.log('切换主题颜色值2：', themeValue, '-----', this.staticPath);
+        // console.log('切换主题颜色值：', process.env.NODE_ENV);
+        // console.log('切换主题颜色值2：', themeValue, '-----', this.staticPath);
         let that = this;
-        //需要移到单独的文件存放
+        // 需要移到单独的文件存放
         let cssArray = themeArray;
         clearLink();
         for (let i = 0, len = cssArray.length; i < len; i++) {
@@ -39,7 +44,6 @@ export const global = {
          */
         function clearLink() {
             let allLink = document.getElementsByTagName('link');
-            console.log('allLink========', allLink);
             removeChildNode(allLink, 'href');
         }
         /**
@@ -51,7 +55,6 @@ export const global = {
          */
         function removeChildNode(arr, targetAttr) {
             for (let i = 0; i < arr.length; i++) {
-                console.log('==============', arr.length, arr[i].getAttribute(targetAttr));
                 if (arr[i] && arr[i].getAttribute(targetAttr) !== null && arr[i].getAttribute(targetAttr).includes('theme')) {
                     arr[i].parentNode.removeChild(arr[i]);
                 }
@@ -66,7 +69,6 @@ export const global = {
                     }
                 }
                 if (tfalg) {
-                    console.log('=========tfalg==========');
                     removeChildNode(arr, targetAttr);
                 }
             }

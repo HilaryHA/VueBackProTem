@@ -1,48 +1,51 @@
+/**
+ * @author Hilary
+ * @date 2019/10/10
+ * @description 自定义样式主题，对应不同主题下的样式文件
+ */
+
 /* 默认主题 */
-$default-theme : (
-  base-color: #ddd,
-  border-color: #000,
-  bg-color: #307BC8, // background color...
-  hover-color: rgba(11, 49, 87, 0.35), // hover color...
-  active-color: #6bb3fd, // dom is actived color...
-  default-color: #e0efff, // text default color...
-  cont-color: #f9f9f9 // right nav background color...
+$default-theme : (base-color: #ddd,
+    border-color: #000,
+    bg-color: #307BC8, // background color...
+    hover-color: rgba(11, 49, 87, 0.35), // hover color...
+    active-color: #6bb3fd, // dom is actived color...
+    default-color: #e0efff, // text default color...
+    cont-color: #f9f9f9 // right nav background color...
 );
 /* 红色主题 */
-$green-theme : (
-  base-color: green,
-  border-color: blue,
-  bg-color: rgb(16, 143, 16),
-  hover-color: rgba(47, 108, 168, 0.35),
-  active-color: rgb(15, 204, 15),
-  default-color: #d5fcd5,
-  cont-color: #f9f9f9
-);
+$green-theme : (base-color: green,
+    border-color: blue,
+    bg-color: rgb(16, 143, 16),
+    hover-color: rgba(47, 108, 168, 0.35),
+    active-color: rgb(15, 204, 15),
+    default-color: #d5fcd5,
+    cont-color: #f9f9f9);
 /* 橙色主题 */
-$orange-theme : (
-    base-color: #642c07,
+$orange-theme : (base-color: #642c07,
     border-color: yellow,
     bg-color: rgb(194, 96, 17),
     hover-color: rgba(197, 122, 9, 0.35),
     active-color: #fd9838,
     default-color: #ffe6d5,
-    cont-color: #f9f9f9
-);
+    cont-color: #f9f9f9);
 
 /* 定义映射集合 */
-$themes: (
-    default-theme: $default-theme,
+$themes: (default-theme: $default-theme,
     green-theme: $green-theme,
-    orange-theme: $orange-theme
-);
+    orange-theme: $orange-theme);
 
 /* 遍历方法 change background... */
-@mixin base-background($falg: true) {    
-    @each $name, $value in $themes {
-        [data-theme = '#{$name}'] & {
+@mixin base-background($falg: true) {
+
+    @each $name,
+    $value in $themes {
+        [data-theme='#{$name}'] & {
             @if $falg {
                 background-color: map-get($map: $value, $key: bg-color);
-            } @else {
+            }
+
+            @else {
                 color: map-get($map: $value, $key: bg-color);
             }
         }
@@ -51,11 +54,15 @@ $themes: (
 
 /* change default text color... */
 @mixin base-color($falg: true) {
-    @each $colorName, $colorValue in $themes {
-        [data-theme = '#{$colorName}'] & {
+
+    @each $colorName,
+    $colorValue in $themes {
+        [data-theme='#{$colorName}'] & {
             @if $falg {
                 color: map-get($map: $colorValue, $key: default-color);
-            } @else {
+            }
+
+            @else {
                 background-color: map-get($map: $colorValue, $key: default-color);
             }
         }
@@ -64,8 +71,10 @@ $themes: (
 
 /* change hover background color... */
 @mixin base-hover() {
-    @each $name, $value in $themes {
-        [data-theme = '#{$name}'] & {     
+
+    @each $name,
+    $value in $themes {
+        [data-theme='#{$name}'] & {
             background-color: map-get($map: $value, $key: hover-color);
         }
     }
@@ -73,17 +82,21 @@ $themes: (
 
 /* change active text color... */
 @mixin base-active() {
-    @each $colorName, $colorValue in $themes {
-        [data-theme = '#{$colorName}'] & {
+
+    @each $colorName,
+    $colorValue in $themes {
+        [data-theme='#{$colorName}'] & {
             color: map-get($map: $colorValue, $key: active-color);
         }
     }
 }
 
-/* change right content background color... */ 
+/* change right content background color... */
 @mixin base-cont-color() {
-    @each $name, $value in $themes {
-        [data-theme = '#{$name}'] & {     
+
+    @each $name,
+    $value in $themes {
+        [data-theme='#{$name}'] & {
             background-color: map-get($map: $value, $key: cont-color);
         }
     }
@@ -91,10 +104,11 @@ $themes: (
 
 /* change bar border right color... */
 @mixin base-border() {
-    @each $name, $value in $themes {
-        [data-theme = '#{$name}'] & {     
+
+    @each $name,
+    $value in $themes {
+        [data-theme='#{$name}'] & {
             border-right: map-get($map: $value, $key: bg-color);
         }
     }
 }
-

@@ -1,7 +1,13 @@
 <template>
   <div class="mo_login">
     <div class="login_cont">
-      <el-form :label-position="labelPosition" label-width="80px" :model="form" ref="form" :rule="rules">
+      <el-form
+        :label-position="labelPosition"
+        label-width="80px"
+        :model="form"
+        ref="form"
+        :rule="rules"
+      >
         <el-form-item label="用户名">
           <el-input v-model="form.name" placeholde="Please enter your username"></el-input>
         </el-form-item>
@@ -20,33 +26,33 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
-      labelPosition: 'top',
+      labelPosition: "top",
       form: {
-        name: '',
-        password: ''
+        name: "",
+        password: ""
       },
       rules: {}
-    }
+    };
   },
   methods: {
     // 登录提交
-    doSubmit (forName) {
-      // console.log(forName)
-      // console.log(this.$refs[forName])
-      this.$router.push('/mo')
+    doSubmit(forName) {
+      // 无需账号密码直接登录
+      this.$router.push("/mo");
     }
   }
-}
+};
 </script>
 <style lang="scss">
-$font-color: #FFF;
+$font-color: #fff;
 $bg-color: rgba(46, 139, 87, 0.4);
-$btn-color: #409EFF;
+$btn-color: #409eff;
 $shadow-color: 3px 7px 50px -12px rgba(64, 158, 255, 0.4);
 @mixin bubbleAnimation($send1, $send2) {
-  animation: bubble $send1 linear infinite, direction $send2 ease-in-out infinite alternate;;
+  animation: bubble $send1 linear infinite,
+    direction $send2 ease-in-out infinite alternate;
 }
 .mo_login {
   position: relative;
@@ -55,13 +61,13 @@ $shadow-color: 3px 7px 50px -12px rgba(64, 158, 255, 0.4);
   height: calc(100% - 220px);
   overflow: hidden;
   &:before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+    background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
     z-index: -1;
   }
 
@@ -91,13 +97,14 @@ $shadow-color: 3px 7px 50px -12px rgba(64, 158, 255, 0.4);
       height: 150px;
       border-radius: 50%;
       position: absolute;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.1), inset 0 10px 30px 5px rgba(255, 255, 255, 1);      
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1),
+        inset 0 10px 30px 5px rgba(255, 255, 255, 1);
       z-index: -1;
     }
     .b1 {
       left: -5%;
       top: 5%;
-      transform: scale(0.6);  // 缩放比例
+      transform: scale(0.6); // 缩放比例
       @include bubbleAnimation(25s, 2s);
     }
     .b2 {
@@ -156,7 +163,7 @@ $shadow-color: 3px 7px 50px -12px rgba(64, 158, 255, 0.4);
     }
     @keyframes bubble {
       0% {
-        margin-top: 100%;      
+        margin-top: 100%;
       }
       100% {
         margin-top: -100%;

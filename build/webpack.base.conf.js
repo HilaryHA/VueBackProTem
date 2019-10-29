@@ -3,12 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
-// const {VueLoaderPlugin} = require('./vue-loader.conf')
 var webpack = require('webpack')
-var appConfig = require('../config/app-config') // import theme-related plugins...
-const ThemeColorReplacer = require('webpack-theme-color-replacer')
-const forElementUI = require('webpack-theme-color-replacer/forElementUI')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -83,7 +78,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new VueLoaderPlugin(),
+    // update...
     new webpack.DefinePlugin({
         // PRODUCTION: JSON.stringify(true),
         // VERSION: JSON.stringify('1.1.0'),
@@ -91,21 +86,7 @@ module.exports = {
             NODE_ENV: JSON.stringify(process.env.NODE_ENV),
             ENV_CONFIG: JSON.stringify(process.env.ENV_CONFIG)
         }
-    }),
-    // // 生成仅包含颜色的替换样式（主题色等）
-    // new ThemeColorReplacer({
-    //   fileName: 'css/theme-colors.[contenthash:8].css',
-    //   matchColors: [
-    //       ...forElementUI.getElementUISeries(appConfig.themeColor),  //element-ui主色系列
-    //       '#0cdd3a',  //自定义颜色
-    //       '#c655dd',
-    //   ],
-    //   changeSelector: forElementUI.changeSelector,
-    //   isJsUgly: process.env.NODE_ENV === 'production'
-    //   // resolveCss(resultCss) { // optional. Resolve result css code as you wish.
-    //   //     return resultCss + youCssCode
-    //   // }
-    // })
+    })
   ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

@@ -1,23 +1,20 @@
 <template>
   <div id="app" :data-theme="nowThemeInfo">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'App',
+  name: "App",
   computed: {
-    ...mapGetters(['nowThemeInfo'])
-  },
-  mounted() {
-    console.log('-----------nowThemeInfo----------------app--------------', this.nowThemeInfo)    
+    ...mapGetters(["nowThemeInfo"])
   }
-}
+};
 </script>
 
 <style>
-  @import '../static/css/reset.scss';
-  @import '../static/css/common.scss';
+@import "../static/css/reset.scss";
+@import "../static/css/common.scss";
 </style>

@@ -2,7 +2,9 @@
   <div class="mo_head">
     <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
-        用户<b class="head_user">{{ username }}</b><i class="el-icon-arrow-down el-icon--right"></i>
+        用户
+        <b class="head_user">{{ username }}</b>
+        <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="layoutSet">布局配置</el-dropdown-item>
@@ -13,35 +15,35 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
-      username: 'Lethe'
-    }
+      username: "Lethe"
+    };
   },
   methods: {
     // 点击下拉选项
-    handleCommand (command) {
+    handleCommand(command) {
       switch (command) {
-        case 'layoutSet':
-          this.openSettingPage()
-          break
-        case 'logout': 
-          this.$router.push('/')
-          break
+        case "layoutSet":
+          this.openSettingPage();
+          break;
+        case "logout":
+          this.$router.push("/");
+          break;
         default:
-          break
+          break;
       }
     },
     // 打开布局配置
-    openSettingPage () {
-      let moDrawer = this.$parent.$refs.moDrawer
-      moDrawer.drawer = true
+    openSettingPage() {
+      let moDrawer = this.$parent.$refs.moDrawer;
+      moDrawer.drawer = true;
     }
   }
-}
+};
 </script>
 <style lang="scss">
-@import '../../../assets/css/theme';
+@import "../../../assets/css/theme";
 .mo_head {
   height: 60px;
   line-height: 60px;

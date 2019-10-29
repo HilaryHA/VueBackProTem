@@ -1,19 +1,22 @@
 <template>
   <div class="mo_footer">
     <el-footer height="30px">
-      <span>{{company}} <i class="fo_copy">{{copyright}}</i> </span>
+      <span>
+        {{company}}
+        <i class="fo_copy">{{copyright}}</i>
+      </span>
     </el-footer>
   </div>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
-      company: 'Home Squat limited the company.',
-      copyright: '9102 iu nbnq ix om'
-    }
+      company: "Home Squat limited the company.",
+      copyright: "9102 iu nbnq ix om"
+    };
   }
-}
+};
 </script>
 <style lang="scss">
 .mo_footer {

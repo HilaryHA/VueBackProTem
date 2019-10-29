@@ -1,7 +1,15 @@
 <template>
   <div class="mo_nav">
-    <el-menu :default-active="defaultActive" class="el-menu-vertical-demo"
-      @open="handleOpen" @close="handleClose" router :collapse="isCollapse" ref="submenu" @select="selectMenuItem">
+    <el-menu
+      :default-active="defaultActive"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      router
+      :collapse="isCollapse"
+      ref="submenu"
+      @select="selectMenuItem"
+    >
       <el-header>
         <p v-if="!isCollapse" class="lg_logo">Home Squat</p>
         <p v-else class="sm_logo">HS</p>
@@ -9,21 +17,29 @@
       <el-scrollbar>
         <template v-for="na in menuList" v-if="!na.hidden">
           <!-- 有子项菜单 -->
-          <el-submenu v-if="!na.meta.noShowMenu"
-            :key="na.path+'na'" :index="na.path">
+          <el-submenu v-if="!na.meta.noShowMenu" :key="na.path+'na'" :index="na.path">
             <template slot="title">
               <i :class="'nav_icon el-icon-'+na.meta.icon"></i>
               <span slot="title">{{na.name}}</span>
             </template>
-            <el-menu-item v-for="child in na.children" :index="child.path"
-              :key="child.path+'na'" v-if="!child.hidden">
+            <el-menu-item
+              v-for="child in na.children"
+              :index="child.path"
+              :key="child.path+'na'"
+              v-if="!child.hidden"
+            >
               <i :class="'nav_icon el-icon-'+child.meta.icon"></i>
               {{child.name}}
             </el-menu-item>
           </el-submenu>
           <!-- 单独菜单，无子项 -->
-          <el-menu-item v-else v-for="child in na.children" :index="child.path"
-            :key="child.path+'na'" :icon="child.icon">
+          <el-menu-item
+            v-else
+            v-for="child in na.children"
+            :index="child.path"
+            :key="child.path+'na'"
+            :icon="child.icon"
+          >
             <i :class="'nav_icon el-icon-'+child.meta.icon"></i>
             <span>{{child.name}}</span>
           </el-menu-item>
@@ -40,48 +56,37 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       defaultActive: this.$route.path,
       isCollapse: false,
       menuList: []
-    }
+    };
   },
-  mounted () {
-    // console.log(this.$router)
-    console.log('[caidan=======]', this.$route)
-    this.getAllMenus()
+  mounted() {
+    this.getAllMenus();
   },
   methods: {
     // 打开菜单
-    handleOpen (el) {
-      // console.log(`handleOpen------> ${el}`)
-    },
+    handleOpen(el) {},
     // 关闭菜单
-    handleClose (el) {
-      // console.log(`handleClose------> ${el}`)
-    },
+    handleClose(el) {},
     // 获取菜单栏数据
-    getAllMenus () {
-      this.menuList = this.$router.options.routes
+    getAllMenus() {
+      this.menuList = this.$router.options.routes;
     },
     // 收缩按钮
-    setFold (bl) {
-      this.isCollapse = bl
-      this.$parent.navIsCollapse = bl // set whether the right side of the layout is folded...
-      // console.log(this.$parent)
+    setFold(bl) {
+      this.isCollapse = bl;
+      this.$parent.navIsCollapse = bl; // set whether the right side of the layout is folded...
     },
     // 选择菜单
-    selectMenuItem (url, allPath, $el) {
-      // console.log('selectMenuItem', url, allPath, $el)
-      
-
-    }
+    selectMenuItem(url, allPath, $el) {}
   }
-}
+};
 </script>
 <style lang="scss">
-@import '../../../assets/css/theme';
+@import "../../../assets/css/theme";
 .mo_nav {
   height: 100%;
   @include base-background();
@@ -99,7 +104,7 @@ export default {
       @include base-background();
       @include base-color();
       overflow: hidden;
-      .lg_logo {        
+      .lg_logo {
         font-size: 20px;
       }
       .sm_logo {
@@ -125,11 +130,11 @@ export default {
       .el-submenu__icon-arrow {
         margin-top: -2px;
       }
-      
+
       .el-menu {
         @include base-background();
       }
-      
+
       .el-submenu__title,
       .el-menu-item {
         @include base-color();
@@ -145,13 +150,13 @@ export default {
         }
       }
 
-      .el-submenu__title:focus, 
+      .el-submenu__title:focus,
       .el-submenu__title:hover,
       .el-menu-item:focus,
-      .el-menu-item:hover{
+      .el-menu-item:hover {
         @include base-hover();
       }
-      
+
       .el-submenu.is-active {
         .el-submenu__title {
           @include base-active();
@@ -188,10 +193,10 @@ export default {
         width: 50px;
       }
       .el-submenu__title {
-        &>span {
+        & > span {
           display: none;
         }
-        &>.el-icon-arrow-right {
+        & > .el-icon-arrow-right {
           display: none;
         }
       }

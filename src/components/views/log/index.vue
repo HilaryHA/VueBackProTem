@@ -1,35 +1,33 @@
 <template>
-  <div>
+  <div class="v_log">
     <el-row>
-      <el-alert
-        title="【用户资料】成功提示的文案"
-        type="success"
-        effect="dark">
-      </el-alert>
-      <el-alert
-        title="消息提示的文案"
-        type="info"
-        effect="dark">
-      </el-alert>
-      <el-alert
-        title="警告提示的文案"
-        type="warning"
-        effect="dark">
-      </el-alert>
-      <el-alert
-        title="错误提示的文案"
-        type="error"
-        effect="dark">
-      </el-alert>
+      <el-radio v-model="radio" label="1" size="small">备选项</el-radio>
+      <el-radio v-model="radio" label="2" size="small">备选项</el-radio>
+    </el-row>
+    <el-row>
+      <el-radio-group v-model="radio3" size="small">
+        <el-radio-button label="上海"></el-radio-button>
+        <el-radio-button label="北京" disabled></el-radio-button>
+        <el-radio-button label="广州"></el-radio-button>
+        <el-radio-button label="深圳"></el-radio-button>
+      </el-radio-group>
     </el-row>
   </div>
 </template>
 <script>
 export default {
-  data () {
-    return {}
+  data() {
+    return {
+      radio: "1",
+      radio3: "上海"
+    };
+  }
+};
+</script>
+<style lang="scss">
+.v_log {
+  .el-row {
+    padding: 20px 0;
   }
 }
-</script>
-<style lang="scss">  
 </style>

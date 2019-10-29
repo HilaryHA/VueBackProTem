@@ -1,4 +1,10 @@
 /**
+ * @author Hilary
+ * @date 2019/10/10
+ * @description 自定义封装的函数
+ */
+
+/**
  * 存储localStorage
  */
 export const setStore = (name, content) => {
@@ -13,12 +19,12 @@ export const setStore = (name, content) => {
  * 获取localStorage
  */
 export const getStore = name => {
-    if(!name) return
+    if (!name) return
     var value = window.localStorage.getItem(name)
     if (value !== null) {
         try {
             value = JSON.parse(value)   //将 JSON 字符串转换为对象
-        } catch (e){
+        } catch (e) {
             value = value
         }
     }
