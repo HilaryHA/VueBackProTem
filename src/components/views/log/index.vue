@@ -12,15 +12,28 @@
         <el-radio-button label="深圳"></el-radio-button>
       </el-radio-group>
     </el-row>
+    <el-row>
+      <log-child></log-child>
+    </el-row>
   </div>
 </template>
 <script>
+import LogChild from './module/logChild'
 export default {
+  components: {
+    LogChild
+  },
   data() {
     return {
       radio: "1",
       radio3: "上海"
     };
+  },
+  // 父组件：依赖注入 参考https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5
+  provide: function() {
+    return {
+      getData: this.$data
+    }
   }
 };
 </script>
