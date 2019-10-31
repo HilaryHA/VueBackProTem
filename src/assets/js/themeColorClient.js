@@ -1,6 +1,6 @@
 /**
  * @author Hilary
- * @date 2019/10/10
+ * @date 2019/08/28
  * @description 初始化UI组件、自定义样式的函数
  */
 import { getStore } from '../../uitl/index.js'

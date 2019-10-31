@@ -1,6 +1,6 @@
 /**
  * @author Hilary
- * @date 2019/10/10
+ * @date 2019/08/28
  * @description 将修改的主题名存储到Vuex中
  */
 import { global } from '@/config/global';

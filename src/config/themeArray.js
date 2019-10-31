@@ -1,6 +1,6 @@
 /**
  * @author Hilary
- * @date 2019/10/10
+ * @date 2019/08/28
  * @description ElementUI主题文件数组
  */
 const themeArray = [

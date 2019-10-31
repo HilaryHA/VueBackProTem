@@ -1,6 +1,6 @@
 /**
  * @author Hilary
- * @date 2019/10/10
+ * @date 2019/08/28
  * @description 公告配置文件
  */
 module.exports = {

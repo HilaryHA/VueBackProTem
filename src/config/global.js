@@ -1,6 +1,6 @@
 /**
  * @author Hilary
- * @date 2019/10/10
+ * @date 2019/08/28
  * @description 切换自定义主题函数（注意区别开发、生产环境）
  */
 import config from '../../config';
