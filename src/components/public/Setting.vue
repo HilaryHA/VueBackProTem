@@ -115,4 +115,7 @@ export default {
     }
   }
 }
+.v-modal {
+  z-index: -1 !important;
+}
 </style>
