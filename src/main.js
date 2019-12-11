@@ -7,7 +7,7 @@ import Element from 'element-ui' // introducing element-ui and styles...
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import { initThemeColor } from '../src/assets/js/themeColorClient'
-import Config from '../../config/app-config'
+import Config from '../config/app-config'
 
 Vue.config.productionTip = false
 // Plugin registered on Vue...
